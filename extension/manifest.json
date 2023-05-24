@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "URL Checker",
+    "version": "1.0",
+    "permissions": [
+      "tabs", "http://*/", "https://*/"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": true
+    },
+    "browser_action": {
+      "default_popup": "/ext/index.html"
+    }
+ 
+}
+  
