@@ -7,7 +7,6 @@ var webpack = require('webpack'),
   TerserPlugin = require('terser-webpack-plugin');
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-var ReactRefreshTypeScript = require('react-refresh-typescript');
 
 const ASSET_PATH = process.env.ASSET_PATH || '/';
 
@@ -90,23 +89,7 @@ var options = {
         loader: 'html-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: require.resolve('ts-loader'),
-            options: {
-              getCustomTransformers: () => ({
-                before: [isDevelopment && ReactRefreshTypeScript()].filter(
-                  Boolean
-                ),
-              }),
-              transpileOnly: isDevelopment,
-            },
-          },
-        ],
-      },
+
       {
         test: /\.(js|jsx)$/,
         use: [
